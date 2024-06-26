@@ -8,10 +8,17 @@ function build_docker_image(){
     docker images
 }
 
-function run_ansible(){
-    echo "" && echo "==> Run ansible playbook to test the code" && echo ""
-    ansible-playbook site.yml
+function build_run_containers(){
+    echo "" && echo "==> Build containers and test code" && echo ""
+    ansible-playbook build-run-container.yml
+    
+}
+
+function destory_containers(){
+    echo "" && echo "==> Destroy the docker containers" && echo ""
+    ansible-playbook destroy-container.yml
 }
 
 build_docker_image
-run_ansible
+build_run_containers
+destory_containers

@@ -16,13 +16,5 @@
         dir: group_vars
 
     - include_role:
-        name: create-container
-      ignore_errors: yes
-
-    - include_role:
-        name: run-container
-      ignore_errors: yes
-      
-    - include_role:
         name: destroy-container
       ignore_errors: yes

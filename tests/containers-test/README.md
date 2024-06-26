@@ -17,4 +17,6 @@ Assumptions:
    - Your server side is running OK and your mysql is OK.
    - Ansible is installed in your environment
 
-
+Tshoot
+=======
+=> Check containers content : $ docker exec <container_name> ls -l
