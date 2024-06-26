@@ -1,27 +1,23 @@
 """
 - Server module
 - Server receives a query from client.
-- Based on type of request received from client, server queries the mysql db server in the backend
-- Importing flask module in the project is mandatory. An object of Flask class is our WSGI application.
-- Flask constructor takes the name of current module (__name__) as argument.
-- The route() function of the Flask class is a decorator.
-- A decorator tells the application which URL should call the associated function.
-
+- Server queries the mysql db server in the backend
 """
 
-from flask import Flask, jsonify, request
 import os
 import mysql.connector
 from mysql.connector import Error
+from flask import Flask, jsonify
 
 app = Flask(__name__)
+# An instance of Flask constructor.
+# takes the name of current module (__name__) as argument.
 
 
 def db_details():
     """
     - Function to collect mysql login details.
-    - As of now, the credentials and other details are read as environmental variables.
-    - This could be changed to have credentials from Secrets Manager like Hashicorp Vault
+    - Could be changed
     """
     host_ip = os.environ.get("MYSQL_SERVER_HOST")
     db_user = os.environ.get("MYSQL_SERVER_USER")
@@ -58,9 +54,13 @@ def mysql_query(query):
             print("MySQL connection is closed")
             return result
 
-    except Error as e:
-        print("Error while connecting to MySQL", e)
-        return e
+    except Error as error_generated:
+        print("Error while connecting to MySQL", error_generated)
+        return error_generated
+
+
+# The route() function of the Flask class is a decorator.
+# decorator tells the application which URL should call the associated function.
 
 
 @app.route("/country/<name>", methods=["GET"])
@@ -81,33 +81,34 @@ def get_country(name):
 
     result = mysql_query(query)
     print(result)
+    return jsonify(result)  # Even if no data, it will empty data?
 
-    if result:
-        return jsonify(result)
-        # return result
-    else:
-        return jsonify({"error": "Country not found"}), 404
-        # return "error : Country not found"
-
-
-def put_country(name):
-    """
-    - PUT method
-    """
-    pass
+    # if result:
+    #     return jsonify(result)
+    #     # return result
+    # else:
+    #     return jsonify({"error": "Country not found"}), 404
+    #     # return "error : Country not found"
 
 
-def post_country(name):
-    """
-    - POST method
-    """
-    pass
+# def put_country():
+#     """
+#     - PUT method
+#     """
+#     pass
 
 
-def delete_country(name):
-    """
-    - DELETE method
-    """
+# def post_country():
+#     """
+#     - POST method
+#     """
+#     pass
+
+
+# def delete_country():
+#     """
+#     - DELETE method
+#     """
 
 
 if __name__ == "__main__":

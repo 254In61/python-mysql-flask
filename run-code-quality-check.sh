@@ -6,14 +6,14 @@
 # }
 
 function reformatWithBlack() {
-    echo "" && echo "==== reformat code with the uncompromising black..."
+    echo "" && echo "==== reformat code with the uncompromising black..." && echo ""
     black modules/
     black scripts/
 }
 
 function linterCheckWithPylint() {
-    echo "" && echo "=== Search for drama moments with the pesky pylint"
-    pylint mymodules/
+    echo "" && echo "=== Search for drama moments with the pesky pylint" && echo ""
+    pylint modules/
     pylint scripts/
     pylint tests/
 }
