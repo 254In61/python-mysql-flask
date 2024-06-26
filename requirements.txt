@@ -1,15 +1,10 @@
 # Flask web framework
-Flask==2.0.3
+Flask==3.0.3
 
-# Flask extensions
-Flask-SQLAlchemy==2.5.1
-Flask-Migrate==3.1.0
-
-# Database connector
-psycopg2-binary==2.9.3
+# MySQL DB connector
 mysql-connector-python==8.4.0
 
-# Testing libraries
+# Testing Libraries
 pytest==7.1.2
 pytest-cov==3.0.0
 

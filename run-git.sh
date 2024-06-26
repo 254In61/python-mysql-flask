@@ -27,6 +27,7 @@ function runGit(){
     git add .gitignore
     git add README.md
     git add run-git.sh
+    git add requirements.txt
     git commit -m "Updates @ $(date)"
     git push
     git status
