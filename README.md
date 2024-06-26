@@ -10,6 +10,22 @@ Prerequisites
 - Python Packages: Install necessary Python packages.
 - $ pip install flask mysql-connector-python
 
+environment
+============
+- Needed packages found in requirements.txt
+- Install of Flask will install all the other needed packages like:
+     $ pip list
+     Package      Version
+     ------------ -------
+     blinker         1.8.2
+     click           8.1.7
+     Flask           3.0.3
+     itsdangerous    2.2.0
+     Jinja2          3.1.4
+     MarkupSafe      2.1.5
+     Werkzeug        3.0.3
+
+
 cicd
 ====
 => TDD approach applied
@@ -33,6 +49,7 @@ cicd
 Design
 =======
 1. Git repo : https://github.com/254In61/python-mysql-flask.git
+
 2. Flask Server:
 - A simple Flask server is set up with a single endpoint /country that accepts GET requests.
 - The server connects to a MySQL database using mysql-connector-python.
@@ -48,4 +65,6 @@ Running the application
 =======================
 1. Start the Flask Server: $ python server.py
 2. Run the Client: $ python client.py
+   - Or you can test using Curl or your favourite API testing suite like Postman.
+
 

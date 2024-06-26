@@ -7,7 +7,7 @@ function installRequirements(){
 
 function reformatWithBlack() {
     echo "" && echo "==== reformat code with the uncompromising black..."
-    black mymodules/
+    black modules/
     black scripts/
 }
 
@@ -21,10 +21,9 @@ function linterCheckWithPylint() {
 function runGit(){
     echo "" && echo "=== Run git"
     git status
-    git add CICD/
-    git add Modules/
-    git add Scripts/
-    git add Tests/
+    git add modules/
+    git add scripts/
+    git add tests/
     git add .gitignore
     git add README.md
     git add run-git.sh
