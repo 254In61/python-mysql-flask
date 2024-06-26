@@ -1,22 +1,9 @@
 #!/usr/bin/bash
 
-function installRequirements(){
-   echo "" && echo "==== install python requirements..."
-   pip install -r requirements.txt
-}
-
-function reformatWithBlack() {
-    echo "" && echo "==== reformat code with the uncompromising black..."
-    black modules/
-    black scripts/
-}
-
-function linterCheckWithPylint() {
-    echo "" && echo "=== Search for drama moments with the pesky pylint"
-    pylint mymodules/
-    pylint scripts/
-    pylint tests/
-}
+# function installRequirements(){
+#    echo "" && echo "==== install python requirements..."
+#    pip install -r requirements.txt
+# }
 
 function runGit(){
     echo "" && echo "=== Run git"
@@ -26,14 +13,11 @@ function runGit(){
     git add tests/
     git add .gitignore
     git add README.md
-    git add run-git.sh
+    git add run-*
     git add requirements.txt
     git commit -m "Updates @ $(date)"
     git push
     git status
 }
 
-installRequirements
-reformatWithBlack
-linterCheckWithPylint
 runGit
