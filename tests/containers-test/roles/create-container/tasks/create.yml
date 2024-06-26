@@ -1,0 +1,10 @@
+---
+# Create container tasks
+
+- name: Create 1st ubuntu container from the image {{ docker_image }}
+  shell: "docker run -d --name {{ container_common_name }}_{{ item }} {{ docker_image }} tail -f /dev/null"
+  with_sequence: count={{ number_of_containers }}
+
+  # -d runs the container in detached mode.
+  # --name $UNIQUE_NAME assigns the unique name to the container.
+  # tail -f /dev/null keeps the container running.
